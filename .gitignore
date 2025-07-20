@@ -1,0 +1,16 @@
+# ESP‑IDF build output
+/build/
+/sdkconfig.old
+/bootloader/
+/partition_table/
+/project_description.json
+*.bin
+*.elf
+*.map
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# VS Code misc
+.vscode/
