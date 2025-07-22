@@ -1,12 +1,11 @@
 /*
- *  AHT10  +  SSD1306 OLED  demo
+ *  AHT10  +  SSD1306 OLED
  *  ESP32‑C3  –  ESP‑IDF v5.1.x
  *
  *  GPIO8  SDA  -->  AHT10  +  OLED
  *  GPIO9  SCL  -->  AHT10  +  OLED
  *  3V3 / GND   -->  both devices
  *
- *  If your OLED’s 7‑bit address is 0x3D, change OLED_ADDR below.
  */
 
 #include <stdio.h>
@@ -25,7 +24,7 @@
 #define I2C_FREQ_HZ     400000
 
 #define AHT10_ADDR      0x38
-#define OLED_ADDR       0x3C          /* change to 0x3D if scanner showed that */
+#define OLED_ADDR       0x3C          
 
 #define OLED_W          128
 #define OLED_H           64
@@ -56,7 +55,6 @@ static inline esp_err_t oled_data(const uint8_t *b, size_t n)     { return i2c_w
 /* ------------------------------------------------------------------------- */
 /* ---------------- Font table (6x8) ------------- */
 static const uint8_t font6x8[96][6] = {
-    /* ASCII 32..127 */
     {0x00,0x00,0x00,0x00,0x00,0x00}, /* space */
     {0x00,0x00,0x5F,0x00,0x00,0x00}, /* ! */
     {0x00,0x07,0x00,0x07,0x00,0x00}, /* " */
@@ -267,7 +265,7 @@ void app_main(void)
     oled_clear();
     ESP_ERROR_CHECK(aht10_init());
 
-    ESP_LOGI(TAG, "Everything initialised – updating display");
+    ESP_LOGI(TAG, "Everything initialised - updating display");
 
     char line1[32], line2[32];
 
